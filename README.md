@@ -1,5 +1,7 @@
 # GeoDiary
 Multimedia Cartography Assignment 1, using multimedia to present multimedia and clarify how it could be used in Cartography :ghost: :ghost:
+# Description
+With multimedia methods, Recording my one day in the Map
 # Multimedia types
 1. Text
 2. Graphics
