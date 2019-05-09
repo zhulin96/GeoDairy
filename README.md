@@ -2,7 +2,7 @@
 Multimedia Cartography Assignment 1, using multimedia to present multimedia and clarify how it could be used in Cartography :ghost: :ghost:
 # Description
 With multimedia methods, Recording my one day life in the Map
-# Multimedia types
+# Multimedia Methods
 1. Text
 2. Graphics
 3. Video
