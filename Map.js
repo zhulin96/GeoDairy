@@ -15,15 +15,15 @@ var trajectory = L.geoJSON().addTo(map);
 var track = [];
 var speed = [];
 var marker_Lin;
-function myFunction(value) {
+function myFunction(value,track,speed) {
   var coords = [value[1],value[0]];
   track.push(coords);
   speed.push(value[2]);
 }
-url = ["https://raw.githubusercontent.com/zhulin96/GeoDiary/master/Morning.json","https://raw.githubusercontent.com/zhulin96/GeoDiary/master/Morning.json"];
+url = ["https://raw.githubusercontent.com/zhulin96/GeoDiary/master/json/Morning.json","https://raw.githubusercontent.com/zhulin96/GeoDiary/master/json/Afternoon.json"];
 popup = [];
-//List.forEach(myFunction);
-function track_route(url){
+function track_route(url,callback){
+	
 	$.ajax({
 	dataType: "json",
 	url: url,
@@ -32,28 +32,34 @@ function track_route(url){
 			var List = [];
 			//var track = [];
 			List = data.features[0].geometry.coordinates;
-			List.forEach(myFunction);
-			marker_Lin= new L.Marker.movingMarker(track, speed,{autostart: true, icon: Lin});
-			map.addLayer(marker_Lin);
-			marker_Lin.on('end', function() {
-				setTimeout(function() {
-				 marker_Lin.bindPopup('<b>10:07 AM</b><br>Library: <a target="\\blanck" href="https://github.com/ewoken/Leaflet.MovingMarker"></a>', {closeOnClick: false})
-				 .openPopup();},200);
+			//List.forEach(myFunction);
+			//marker_Lin= new L.Marker.movingMarker(track, speed,{autostart: true}).addTo(map);
+			//map.fitBounds(track);
+			//marker_Lin.on('end', function() {
+			//	setTimeout(function() {
+				//marker_Lin.bindPopup('<b>10:07 AM</b><br>Library: <a target="\\blanck" href="https://github.com/ewoken/Leaflet.MovingMarker"></a>', {closeOnClick: false})
+				// .openPopup();
 				//map.removeLayer(marker_Lin);
 				//map.removeMarker(marker_Lin);
 				//map.removeLayer(marker_Lin);
-			});
-			if (marker_Lin.isEnded()){
-				map.removeLayer(marker_Lin);
-			}
+				//return marker_Lin.isEnded();
+			//});
+			
 			//map.removeMarker(marker_Lin);
-			//return marker_Lin;
+			
+			callback(List);
 		}		
 	});
 }
+
 for (i=0;i<url.length;i++)
 {
-   track_route(url[i]);
+	//List = track_route(url[i],List);
+   //if (track_route(url[i])) {continue;};
+   track_route(url[i],function(data){
+	   
+   });
+   //alert(data);
    //this.map.removeLayer(marker);
   //layerGroup.clearLayers();
   //{continue;}
