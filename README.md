@@ -9,4 +9,3 @@ With multimedia methods, Recording my one day life in the Map
 4. Sound
 5. Interaction
 6. Animation
-
