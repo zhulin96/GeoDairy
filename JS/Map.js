@@ -1,7 +1,9 @@
 var map = L.map('map').setView([48.210033, 16.363449], 13);
 var Basemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> Icon &copy; <a href="https://icons8.com/icon/64246/shopping-cart-promotion">Shopping Cart Promotion icon</a>'+
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'+
+					'MovingMarker &copy;<a href="https://github.com/ewoken/Leaflet.MovingMarker">Leaflet.MovingMarker</a> '+
+					'Icon &copy; <a href="https://icons8.com/icon/64246/shopping-cart-promotion">Shopping Cart Promotion icon</a>'+
 					'&copy;<a href="https://icons8.com/icon/108793/tableware">Tableware icon</a>'+
 					'&copy;<a href="https://icons8.com/icon/113802/books">Books icon</a>',
 		id: 'mapbox.light'
@@ -50,7 +52,7 @@ L.polyline(Route_morning.track,{color: 'yellow'}).addTo(map);
 marker_morning= new L.Marker.movingMarker(Route_morning.track, Route_morning.speed,{autostart: true,icon: Icon_morning}).addTo(map);
 marker_morning.bindPopup('<b>On the way to library. <br>It\'s time for studying</b>').openPopup();
 marker_morning.on('end', function() {
-	marker_morning.bindPopup('<h4>Morning</h4><b>Time-10:10 AM</b><br><b>Place-TU Vienna University Library</b>').openPopup();
+	marker_morning.bindPopup('<h4>Morning</h4><b>Time-10:10 AM</b><br><b>Place-TU Vienna University Library</b><img width="250" height="250" src="src/library.jpg" controls></img>').openPopup();
 	L.polyline(Route_afternoon.track,{color: 'blue'}).addTo(map);
 	marker_afternoon= new L.Marker.movingMarker(Route_afternoon.track, Route_afternoon.speed,{autostart: true,icon: Icon_afternoon}).addTo(map);
 	marker_afternoon.bindPopup('<b>Finished one-day lectures <br>I must go to buy some food for my weekend</b>').openPopup();
